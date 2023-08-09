@@ -62,7 +62,6 @@ public class SellerDaoJDBC implements SellerDao {
 			DB.closeStatement(st);
 		}
 	}
-
 	@Override
 	public void update(Seller obj) {
 		PreparedStatement st = null;
@@ -88,7 +87,6 @@ public class SellerDaoJDBC implements SellerDao {
 			DB.closeStatement(st);
 		}
 	}
-
 	@Override
 	public void deleteById(Integer id) {
 		PreparedStatement st = null;
@@ -106,7 +104,6 @@ public class SellerDaoJDBC implements SellerDao {
 			DB.closeStatement(st);
 		}
 	}
-
 	@Override
 	public Seller findById(Integer id) {
 		PreparedStatement st = null;
@@ -129,7 +126,6 @@ public class SellerDaoJDBC implements SellerDao {
 			DB.closeResultSet(rs);
 		}
 	}
-
 	private Seller instantiateSaller(ResultSet rs, Department dep) throws SQLException {
 		Seller obj = new Seller();
 		obj.setId(rs.getInt("Id"));
@@ -140,14 +136,12 @@ public class SellerDaoJDBC implements SellerDao {
 		obj.setDepartment(dep);
 		return obj;
 	}
-
 	private Department instantiateDepartment(ResultSet rs) throws SQLException {
 		Department dep = new Department();
 		dep.setId(rs.getInt("DepartmentId"));
 		dep.setName(rs.getString("DepName"));
 		return dep;
 	}
-
 	@Override
 	public List<Seller> findAll() {
 		PreparedStatement st = null;
@@ -183,7 +177,6 @@ public class SellerDaoJDBC implements SellerDao {
 			DB.closeResultSet(rs);
 		}
 	}
-
 	@Override
 	public List<Seller> findByDepartment(Department department) {
 		PreparedStatement st = null;
@@ -221,5 +214,4 @@ public class SellerDaoJDBC implements SellerDao {
 			DB.closeResultSet(rs);
 		}
 	}
-
 }
